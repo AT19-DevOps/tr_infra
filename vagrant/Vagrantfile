@@ -15,5 +15,6 @@ Vagrant.configure("2") do |config|
     dockerserver.vm.provision :file, source:"../docker/docker-compose.yaml", destination:"docker-compose.yaml"
     dockerserver.vm.provision :docker_compose, yml:"/home/vagrant/docker-compose.yaml", run:"always" 
     dockerserver.vm.provision :shell, inline:"sudo chmod 777 /var/run/docker.sock && sudo chmod 777 /usr/bin/docker"
+    dockerserver.vm.provision :shell, inline:"sudo chmod 777 /usr/local/bin/docker-compose"
   end
 end
